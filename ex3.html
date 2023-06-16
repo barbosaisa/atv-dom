@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .destaque {
+      background-color: rgba(205, 185, 207, 0.822);
+      
+    }
+    .titulo{
+        color: rgb(107, 31, 107);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: x-large;
+    }
+
+        .calendar th,td{
+            border: solid 1px rgb(243, 226, 226);
+            width: 40px;
+            height: 40px;
+                background-color: rgb(131, 108, 153);
+    }
+    .form{
+        color:rgb(15, 14, 15);
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.tudo{
+    text-align: center;
+    width: 50%;
+    height: 40%;
+    text-decoration: solid;
+       
+}
+
+
+  </style>
+</head>
+<body>
+
+   <div class="titulo"><h1> Calendário da isa </h1> </div>  
+  
+   <hr>
+  <form id="formulario">
+    <form id="formulario">
+      <div class="form"> 
+            <input type="'date" id="data" name="data" placeholder=" Insira a data:">                                            
+          <input type="submit" value=" Destacar"> 
+            
+        
+     </form>
+  </form>
+  <br>
+  <br>
+  <div class="tudo">
+  <table id="calendario">
+    <tr>
+      <th>Dom</th>
+      <th>Seg</th>
+      <th>Ter</th>
+      <th>Qua</th>
+      <th>Qui</th>
+      <th>Sex</th>
+      <th>Sáb</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+</tr>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+      <tr id="destaque"></tr>
+     </tr>
+     <tr>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+        <td>15</td>
+        <td>16</td>
+        <td>17</td>
+  
+  <tr>
+    <td>18</td>
+    <td>19</td>
+    <td>20</td>
+    <td>21</td>
+    <td>22</td>
+    <td>23</td>
+    <td>24</td>
+    </tr>
+    <tr>
+
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>  
+        <td>29</td>
+        <td>30</td>
+        <td>31</td>
+        </tr>
+        <tr>
+
+            
+
+   
+        
+</table>
+</div>
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      var dataInserida = document.getElementById('data').value;
+      destacarData(dataInserida);
+    });
+
+    function destacarData(data) {
+      var celulaDestaque = document.getElementById('destaque');
+      celulaDestaque.classList.remove('destaque');
+      celulaDestaque = null;
+
+      var celulasCalendario = document.querySelectorAll('#calendario td');
+      for (var i = 0; i < celulasCalendario.length; i++) {
+        var celula = celulasCalendario[i];
+        if (celula.innerText === data) {
+          celulaDestaque = celula;
+          break;
+        }
+      }
+
+      if (celulaDestaque) {
+        celulaDestaque.classList.add('destaque');
+      }
+    }
+
+  </script>
+
+</body>
+</body>
+</html>
